@@ -9,7 +9,7 @@ const $ = require( "jquery" )( window );
 
 let content = fs.readFileSync(logPath, 'utf8')
 content     = content.replace(/,\n$/,'').split(',\n')
-//test11
+//test12
 class Parser {
     constructor(){}
 
