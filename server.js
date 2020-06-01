@@ -9,6 +9,7 @@ app.use(bodyParser.json({limit: '1mb'}));
 app.use(bodyParser.urlencoded({ extended: false })); 
 app.use('/', express.static(__dirname));
 app.get('/check', (req, res)=>{
+    console.log('MINGXI_DEBUG_LOG>>>>>>>>>111','');
     try {
         let channel_id = req.query.channel_id
         let env        = req.query.env
