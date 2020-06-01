@@ -45,7 +45,7 @@ class Parser {
     }
 
     __type(enType){
-        return `<font style='color:${(this.$type_hash[enType]||[])[1] || '#000'}; font-weight:bold;'>${this.$type_hash[enType][0] || enType}</font>`
+        return `<font style='color:${(this.$type_hash[enType]||[])[1] || '#000'}; font-weight:bold;'>${(z)[0] || enType}</font>`
     }
 
     __query_logs(){
@@ -61,6 +61,7 @@ class Parser {
                         this.$content.push(log.content)
                     })
                     this.__parse_user()
+                    console.log('over')
                 }
             },
             error: (...args)=>{
@@ -71,6 +72,7 @@ class Parser {
     }
 
     __parse_user(){
+        console.log('MINGXI_DEBUG_LOG>>>>>>>>>__parse_user');
         this.$content = this.$content.sort((itemA, itemB)=>{
             itemA = JSON.parse(itemA)
             itemB = JSON.parse(itemB)
