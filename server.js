@@ -20,6 +20,9 @@ app.all('*',function (req, res, next) {
   }
 });
 app.use('/', express.static(__dirname));
+app.get('/', function (req, res) {
+  res.send('Welcome!')
+})
 app.get('/check', (req, res)=>{
     console.log('MINGXI_DEBUG_LOG>>>>>>>>>111','');
     try {
