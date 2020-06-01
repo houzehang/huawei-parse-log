@@ -7,6 +7,18 @@ const fs = require('fs')
 
 app.use(bodyParser.json({limit: '1mb'})); 
 app.use(bodyParser.urlencoded({ extended: false })); 
+app.all('*',function (req, res, next) {
+  console.log('MINGXI_DEBUG_LOG>>>>>>>>>2121212','');
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Content-Length, Authorization, Accept, X-Requested-With');
+  res.header('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS');
+  if (req.method == 'OPTIONS') {
+    res.send(200);
+  }
+  else {
+    next();
+  }
+});
 app.use('/', express.static(__dirname));
 app.get('/check', (req, res)=>{
     console.log('MINGXI_DEBUG_LOG>>>>>>>>>111','');
