@@ -1,6 +1,5 @@
 let fs      = require('fs')
 let path    = require('path')
-let got     = require('got')
 let logPath = path.resolve('.','room.log')
 let outPath = path.resolve('.','docs','result.md')
 
