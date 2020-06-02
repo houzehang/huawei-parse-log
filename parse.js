@@ -96,7 +96,7 @@ class Parser {
                 })
             }
             if (item.type == '*startcourse') {
-                lessonStartTime = item.created_at
+                lessonStartTime = (item.created_at / 1000)|0
             }
             
             timeFrom = Math.min(timeFrom,(item.created_at / 1000)|0)
