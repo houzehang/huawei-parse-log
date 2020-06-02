@@ -87,6 +87,7 @@ class Parser {
         }).map(_=>JSON.parse(_))
         let timeFrom    = 1906636020
         let timeTo      = 0
+        let lessonStartTime
         this.$content.map((item)=>{
             if (item && item.type == 'member_add') {
                 let userinfos = item.userinfos || []
@@ -94,9 +95,16 @@ class Parser {
                     this.$users[user.id] = user
                 })
             }
+            if (item.type == '*startcourse') {
+                lessonStartTime = item.created_at
+            }
+            
             timeFrom = Math.min(timeFrom,(item.created_at / 1000)|0)
             timeTo   = Math.max(timeTo,(item.created_at / 1000)|0)
         })
+        if (lessonStartTime) {
+            timeFrom = lessonStartTime
+        }
 
         this.$agora_content = String.raw`[查看该频道(${this.$channelId})](https://console.agora.io/analytics/call/search?fromTs=${timeFrom}&toTs=${timeTo}&from=0&size=15&projectId=${PROJECT_ID}&cname=${(this.$channelId||'').replace(/=/g,'%3D')})
 ### 操作记录`
