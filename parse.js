@@ -19,8 +19,9 @@ class Parser {
         this.$channelId     = channelId;
         this.$baseUrl       = dev ? 'http://logdev.youshiyuwen.cn' : 'https://log.doushenmingxi.cn'
         this.$cols          = ['时间','类型','附加数据']
-        this.$pre_content   = String.raw`# 课堂操作查看
-        [checker website](http://121.36.22.201/mxlog ':include :type=iframe width=100% height=50px')`
+        this.$pre_content   = String.raw`### 操作查询
+[checker website](http://121.36.22.201/mxlog ':include :type=iframe width=100% height=50px')
+### 查询结果`
         this.$callback      = callback
         this.$type_hash     = {
             '?operation':['',''],
