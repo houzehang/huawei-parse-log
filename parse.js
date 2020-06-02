@@ -45,7 +45,7 @@ class Parser {
     }
 
     __type(enType){
-        return `<font style='color:${(this.$type_hash[enType]||[])[1] || '#000'}; font-weight:bold;'>${(z)[0] || enType}</font>`
+        return `<font style='color:${(this.$type_hash[enType]||[])[1] || '#000'}; font-weight:bold;'>${(this.$type_hash[enType]||[])[0] || enType}</font>`
     }
 
     __query_logs(){
