@@ -98,7 +98,7 @@ class Parser {
             let extra  = ''
             switch (item.type) {
                 case '?operation':
-                    let containTouchStart = false
+                    let containTouchStart = false;
                     (item.message||[]).map((touchInfo)=>{
                         if (touchInfo && touchInfo[0] == 1) {
                             containTouchStart = true
