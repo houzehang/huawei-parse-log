@@ -94,8 +94,8 @@ class Parser {
                     this.$users[user.id] = user
                 })
             }
-            timeFrom = Math.min(timeFrom,item.created_at / 1000)
-            timeTo   = Math.max(timeTo,item.created_at / 1000)
+            timeFrom = Math.min(timeFrom,(item.created_at / 1000)|0)
+            timeTo   = Math.max(timeTo,(item.created_at / 1000)|0)
         })
 
         this.$agora_content = String.raw`[查看该频道(${this.$channelId})](https://console.agora.io/analytics/call/search?fromTs=${timeFrom}&toTs=${timeTo}&from=0&size=15&projectId=${PROJECT_ID}&cname=${(this.$channelId||'').replace(/=/g,'%3D')})
