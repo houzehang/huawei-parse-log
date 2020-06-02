@@ -21,7 +21,7 @@ class Parser {
         this.$cols          = ['时间','类型','附加数据']
         this.$pre_content   = String.raw`### 操作查询
 [checker website](http://121.36.22.201/mxlog ':include :type=iframe width=100% height=50px')
-### 查询结果`
+### 声网水晶球`
         this.$callback      = callback
         this.$type_hash     = {
             '?operation':['操作点击','#da52c8'],
@@ -98,7 +98,8 @@ class Parser {
             timeTo   = Math.max(timeTo,item.created_at / 1000)
         })
 
-        this.$agora_content = `[声网查看该频道(${this.$channelId})](https://console.agora.io/analytics/call/search?fromTs=${timeFrom}&toTs=${timeTo}&from=0&size=15&projectId=${PROJECT_ID}&cname=${(this.$channelId||'').replace(/=/g,'%3D')})`
+        this.$agora_content = String.raw`[查看该频道(${this.$channelId})](https://console.agora.io/analytics/call/search?fromTs=${timeFrom}&toTs=${timeTo}&from=0&size=15&projectId=${PROJECT_ID}&cname=${(this.$channelId||'').replace(/=/g,'%3D')})
+### 操作记录`
         this.$content.map((item, index)=>{
             let line = `${this.__time(item.created_at)}|${this.__type(item.type)}|`
             let extra  = ''
