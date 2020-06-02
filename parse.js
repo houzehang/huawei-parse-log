@@ -14,13 +14,15 @@ class Parser {
     constructor(){}
 
     parse(channelId, dev, callback){
-        this.$content   = []
-        this.$users     = {}
-        this.$channelId = channelId;
-        this.$baseUrl   = dev ? 'http://logdev.youshiyuwen.cn' : 'https://log.doushenmingxi.cn'
-        this.$cols      = ['时间','类型','附加数据']
-        this.$callback  = callback
-        this.$type_hash = {
+        this.$content       = []
+        this.$users         = {}
+        this.$channelId     = channelId;
+        this.$baseUrl       = dev ? 'http://logdev.youshiyuwen.cn' : 'https://log.doushenmingxi.cn'
+        this.$cols          = ['时间','类型','附加数据']
+        this.$pre_content   = String.raw`# 课堂操作查看
+        [checker website](http://121.36.22.201/mxlog ':include :type=iframe width=100% height=50px')`
+        this.$callback      = callback
+        this.$type_hash     = {
             '?operation':['',''],
             'member_add': ['用户加入','blue'],
             'nextpage': ['切页','orange'],
@@ -123,7 +125,7 @@ class Parser {
             }
         })
         
-        fs.writeFileSync(outPath, this.$lines.join('\n'), 'utf8')
+        fs.writeFileSync(outPath, this.$pre_content + '\n' + this.$lines.join('\n'), 'utf8')
 
     }
     __user_display(id){
