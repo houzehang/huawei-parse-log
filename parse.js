@@ -13,12 +13,13 @@ content     = content.replace(/,\n$/,'').split(',\n')
 class Parser {
     constructor(){}
 
-    parse(channelId, dev){
+    parse(channelId, dev, callback){
         this.$content   = []
         this.$users     = {}
         this.$channelId = channelId;
         this.$baseUrl   = dev ? 'http://logdev.youshiyuwen.cn' : 'https://log.doushenmingxi.cn'
         this.$cols      = ['时间','类型','附加数据']
+        this.$callback  = callback
         this.$type_hash = {
             '?operation':['',''],
             'member_add': ['用户加入','blue'],
@@ -62,6 +63,7 @@ class Parser {
                     })
                     this.__parse_user()
                     console.log('over')
+                    this.$callback && this.$callback()
                 }
             },
             error: (...args)=>{
