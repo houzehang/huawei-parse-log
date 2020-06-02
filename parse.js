@@ -6,7 +6,7 @@ let outPath = path.resolve('.','docs','index.md')
 const { JSDOM } = require( "jsdom" );
 const { window } = new JSDOM( "" );
 const $ = require( "jquery" )( window );
-
+const PROJECT_ID   = 'cBno2KbuYZ-'
 let content = fs.readFileSync(logPath, 'utf8')
 content     = content.replace(/,\n$/,'').split(',\n')
 //test15
@@ -85,6 +85,8 @@ class Parser {
             itemB = JSON.parse(itemB)
             return itemA.created_at > itemB.created_at ? 1 : -1
         }).map(_=>JSON.parse(_))
+        let timeFrom    = 1906636020
+        let timeTo      = 0
         this.$content.map((item)=>{
             if (item && item.type == 'member_add') {
                 let userinfos = item.userinfos || []
@@ -92,7 +94,11 @@ class Parser {
                     this.$users[user.id] = user
                 })
             }
+            timeFrom = Math.min(timeFrom,item.created_at / 1000)
+            timeTo   = Math.max(timeTo,item.created_at / 1000)
         })
+
+        this.$agora_content = `[声网查看该频道(${this.$channelId})](https://console.agora.io/analytics/call/search?fromTs=${timeFrom}&toTs=${timeTo}&from=0&size=15&projectId=${PROJECT_ID}&cname=${(this.$channelId||'').replace(/=/g,'%3D')})`
         this.$content.map((item, index)=>{
             let line = `${this.__time(item.created_at)}|${this.__type(item.type)}|`
             let extra  = ''
@@ -136,7 +142,7 @@ class Parser {
             }
         })
         
-        fs.writeFileSync(outPath, this.$pre_content + '\n' + this.$lines.join('\n'), 'utf8')
+        fs.writeFileSync(outPath, this.$pre_content + '\n' + this.$agora_content + '\n' + this.$lines.join('\n'), 'utf8')
 
     }
     __user_display(id){
