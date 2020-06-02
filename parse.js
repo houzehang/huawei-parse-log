@@ -41,7 +41,8 @@ class Parser {
             'shareclip': ['分享截屏','#b775b2'],
             'endshare': ['关闭分享截屏','#b775b2'],
             '#coursepause': ['暂停上课','#9bb77'],
-            '#courseresume': ['恢复上课','#9bb77']
+            '#courseresume': ['恢复上课','#9bb77'],
+            'clearlines': ['清除画线','#7d2b7a'],
         }
         this.$lines     = [this.$cols.join('|'), this.$cols.map(_=>'-').join('|')]
         this.$types     = {}
