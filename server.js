@@ -32,7 +32,7 @@ app.get('/check', (req, res)=>{
           console.log('开始解析')
           parser.parse(channel_id, env == 'test',(err)=>{
             if (err) {
-              res.send(err.responseText ? err.responseText : '解析失败')
+              res.send(err.responseJSON ? err.responseJSON.message : '解析失败')
             } else {
               res.send('解析完成')
             }
