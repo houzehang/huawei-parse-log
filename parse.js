@@ -24,7 +24,7 @@ class Parser {
 ### 查询结果`
         this.$callback      = callback
         this.$type_hash     = {
-            '?operation':['',''],
+            '?operation':['操作点击','#da52c8'],
             'member_add': ['用户加入','blue'],
             'nextpage': ['切页','orange'],
             'enablemagic': ['交出魔法棒','#28bb93'],
@@ -98,6 +98,15 @@ class Parser {
             let extra  = ''
             switch (item.type) {
                 case '?operation':
+                    let containTouchStart = false
+                    (item.message||[]).map((touchInfo)=>{
+                        if (touchInfo && touchInfo[0] == 1) {
+                            containTouchStart = true
+                        }
+                    })
+                    if (containTouchStart && !this.__master(item.from)) {
+                        extra = this.__user_display(item.from)
+                    }
                     break;
                 case 'member_add':
                     extra = item.userinfos.map((user)=>{
