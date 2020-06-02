@@ -66,8 +66,9 @@ class Parser {
                     this.$callback && this.$callback()
                 }
             },
-            error: (...args)=>{
-                console.log('request error',url,...args);
+            error: (err)=>{
+                console.log('request error',err);
+                this.$callback && this.$callback(err)
             }
         })
 

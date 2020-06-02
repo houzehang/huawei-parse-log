@@ -30,8 +30,12 @@ app.get('/check', (req, res)=>{
         let env        = req.query.env
         if (channel_id && env) {
           console.log('开始解析')
-          parser.parse(channel_id, env == 'test',()=>{
-            res.send('解析完成')
+          parser.parse(channel_id, env == 'test',(err)=>{
+            if (err) {
+              res.send(err)
+            } else {
+              res.send('解析完成')
+            }
             console.log('完成解析')
           })
         } else {
