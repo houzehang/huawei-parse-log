@@ -1,7 +1,7 @@
 let fs      = require('fs')
 let path    = require('path')
 let logPath = path.resolve('.','room.log')
-let outPath = path.resolve('.','docs','result.md')
+let outPath = path.resolve('.','docs','index.md')
 
 const { JSDOM } = require( "jsdom" );
 const { window } = new JSDOM( "" );
