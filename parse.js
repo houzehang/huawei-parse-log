@@ -151,7 +151,7 @@ class Parser {
             }
         })
         if (this.$lines.length <= 3) {
-            thi.$lines.push('暂无记录')
+            this.$lines.push('暂无记录')
         }
         fs.writeFileSync(outPath, this.$pre_content + '\n' + this.$agora_content + '\n' + this.$lines.join('\n'), 'utf8')
 
