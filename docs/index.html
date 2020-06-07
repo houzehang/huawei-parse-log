@@ -20,6 +20,12 @@
         'cache-control': 'max-age=0',
       },
     }
+    window.showMask = function(){
+      $("body").mLoading('show');
+    }
+    window.hideMask = function(){
+      $("body").mLoading('hide');
+    }
   </script>
   <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
 </body>
