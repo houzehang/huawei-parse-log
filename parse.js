@@ -107,7 +107,7 @@ class Parser {
         }
 
         this.$agora_content = String.raw`[查看该频道(${this.$channelId})](https://console.agora.io/analytics/call/search?fromTs=${timeFrom}&toTs=${timeTo}&from=0&size=15&projectId=${PROJECT_ID}&cname=${(this.$channelId||'').replace(/=/g,'%3D')})
-### 操作记录`
+### 查询结果`
         this.$content.map((item, index)=>{
             let line = `${this.__time(item.created_at)}|${this.__type(item.type)}|`
             let extra  = ''
