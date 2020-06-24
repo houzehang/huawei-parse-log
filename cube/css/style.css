@@ -16,7 +16,8 @@ a:hover,a:focus{color:#74777b;text-decoration: none;} */
 	display:inline-block;
 	width:250px;
 	height:250px;
-	top:-100px;
+    top:-100px;
+    z-index: 10000;
 	/*top:250px;
 	margin:0px auto 0px auto;*/
 }
