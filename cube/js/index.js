@@ -52,14 +52,14 @@ boxes1.each(function (index, element) {
 });
 
 //
-threeDTimeline.to(trans3DBoxes1, 30, {css:{rotationY:360, rotationX:-720, transformOrigin:"125px 125px 0px"}, ease:Power0.easeNone});
+threeDTimeline.to(trans3DBoxes1, 50, {css:{rotationY:360, rotationX:-720, transformOrigin:"125px 125px 0px"}, ease:Power0.easeNone});
 //
 function updateCube(){
 	stageW = ($(window).width())/2;
 	stageH = ($(window).height())/2;
 	stageX = (stageW-(trans3DBoxes1.width()/2));
 	stageY = (stageH-(250/2));
-	TweenMax.to(trans3DBoxes1, 1, {css:{x:stageX, y:stageY}});
+	TweenMax.to(trans3DBoxes1, 2, {css:{x:stageX, y:stageY}});
 }
 /*
 Just a note:
