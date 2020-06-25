@@ -52,7 +52,7 @@ boxes1.each(function (index, element) {
 });
 
 //
-threeDTimeline.to(trans3DBoxes1, 60, {css:{rotationY:360, rotationX:-720, transformOrigin:"125px 125px 0px"}, ease:Power0.easeNone});
+threeDTimeline.to(trans3DBoxes1, 100, {css:{rotationY:360, rotationX:-720, transformOrigin:"125px 125px 0px"}, ease:Power0.easeNone});
 //
 function updateCube(){
 	stageW = ($(window).width())/2;
