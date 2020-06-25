@@ -1,7 +1,7 @@
 var link = document.createElement('link');
 link.setAttribute('type','text/css');
 link.setAttribute('rel','stylesheet');
-link.setAttribute('href','http://121.36.22.201/app/cube/css/style.css');
+link.setAttribute('href','https://www.tohoran.com/app/cube/css/style.css');
 link.onload = ()=>{
     var div = document.createElement("div");
     div.setAttribute('id','trans3DDemo1');
@@ -22,11 +22,11 @@ link.onload = ()=>{
     script.async = true;
     script.onload = ()=>{
         let script = document.createElement('script');
-        script.src = 'http://121.36.22.201/app/cube/js/TweenMax.min.js';
+        script.src = 'https://www.tohoran.com/app/cube/js/TweenMax.min.js';
         script.async = true;
         script.onload = ()=>{
             script = document.createElement('script');
-            script.src = 'http://121.36.22.201/app/cube/js/index.js';
+            script.src = 'https://www.tohoran.com/app/cube/js/index.js';
             document.getElementsByTagName('head')[0].appendChild(script);
             
             div.style.visibility = 'visible'
