@@ -1,0 +1,38 @@
+var link = document.createElement('link');
+link.setAttribute('type','text/css');
+link.setAttribute('rel','stylesheet');
+link.setAttribute('href','http://121.36.22.201/app/cube/css/style.css');
+link.onload = ()=>{
+    var div = document.createElement("div");
+    div.setAttribute('id','trans3DDemo1');
+    div.style.visibility = 'hidden';
+    div.innerHTML = String.raw`<div id="trans3DBoxes1" style="transform-style: preserve-3d; transform: matrix3d(-0.793736, 0, 0.608263, -0.000202754, 0.587338, 0.260033, 0.766431, -0.000255477, -0.158168, 0.9656, -0.206397, 6.87991e-05, 771, 337.5, 0, 1); transform-origin: 125px 125px 0px;">
+        <div class="a1" style="opacity: 0.85; transform: translate3d(0px, 0px, 125px);"></div>
+        <div class="a2" style="opacity: 0.85; transform: matrix3d(0, 0, 1, 0, 0, 1, 0, 0, -1, 0, 0, 0, -125, 0, 0, 1);"></div>
+        <div class="a3" style="opacity: 0.85; transform: matrix3d(0, 0, -1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 125, 0, 0, 1);"></div>
+        <div class="a4" style="opacity: 0.85; transform: matrix3d(1, 0, 0, 0, 0, 0, 1, 0, 0, -1, 0, 0, 0, -125, 0, 1);"></div>
+        <div class="a5" style="opacity: 0.85; transform: matrix3d(1, 0, 0, 0, 0, 0, -1, 0, 0, 1, 0, 0, 0, 125, 0, 1);"></div>
+        <div class="a6" style="opacity: 0.85; transform: matrix3d(-1, 0, 0, 0, 0, 1, 0, 0, 0, 0, -1, 0, 0, 0, -125, 1);"></div>
+    </div>
+    `;
+    document.body.appendChild(div); 
+    
+    var script = document.createElement('script');
+    script.src = 'https://libs.baidu.com/jquery/1.10.2/jquery.min.js';
+    script.async = true;
+    script.onload = ()=>{
+        let script = document.createElement('script');
+        script.src = 'http://121.36.22.201/app/cube/js/TweenMax.min.js';
+        script.async = true;
+        script.onload = ()=>{
+            script = document.createElement('script');
+            script.src = 'http://121.36.22.201/app/cube/js/index.js';
+            document.getElementsByTagName('head')[0].appendChild(script);
+            
+            div.style.visibility = 'visible'
+        }
+        document.getElementsByTagName('head')[0].appendChild(script);
+    }
+    document.getElementsByTagName('head')[0].appendChild(script);
+}
+document.getElementsByTagName('head')[0].appendChild(link);
